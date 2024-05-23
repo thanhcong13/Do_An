@@ -1,0 +1,42 @@
+{
+  "name": "client-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@morioh/v-lightbox": "^1.0.3",
+    "@vuepic/vue-datepicker": "^4.5.1",
+    "axios": "^1.3.5",
+    "core-js": "^3.8.3",
+    "moment": "^2.29.4",
+    "scss": "^0.2.4",
+    "swiper": "^9.2.4",
+    "vite": "^4.2.1",
+    "vue": "^3.2.13",
+    "vue-router": "^4.1.6",
+    "vue3-datepicker": "^0.3.4",
+    "vue3-google-map": "^0.15.0",
+    "vuetify": "^3.1.14",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@mdi/font": "^7.2.96",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-typescript": "^9.1.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "sass": "^1.62.0",
+    "sass-loader": "^13.2.2",
+    "typescript": "~4.5.5"
+  }
+}

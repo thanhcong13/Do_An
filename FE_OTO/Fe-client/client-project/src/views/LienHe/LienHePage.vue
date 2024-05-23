@@ -1,0 +1,96 @@
+<template>
+  <h1 class=" text-center" style="margin-top:85px;">Thông tin liên hệ</h1>
+  <v-item-group style="margin: 0 auto" mandatory>
+    <v-container class="fill-height">
+      <v-row class="d-flex justify-center align-center w-50">
+        <v-col cols="12">
+          <v-row class="d-flex justify-center align-center">
+            <v-col cols="3">
+              <span class="float-left">Tên sản phẩm</span>
+              <input class="w-100 input_lienhe" type="text" disabled v-model="tenSP" />
+            </v-col>
+            <v-col cols="3">
+              <span class="mr-2">Tên khách hàng</span>
+              <input
+                class="w-100 input_lienhe"
+                type="text"
+                v-model="tenKH"
+                placeholder="Nhập tên"
+              />
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col cols="12">
+          <v-row class="d-flex justify-center align-center">
+            <v-col cols="3">
+              <span class="mr-2">Số điện thoại</span>
+              <input
+                class="w-100 input_lienhe"
+                type="text"
+                v-model="sDTKH"
+                placeholder="Nhập số điện thoại"
+              />
+            </v-col>
+            <v-col cols="3">
+              <span class="mr-2">Email</span>
+              <input
+                class="w-100 input_lienhe"
+                type="text"
+                v-model="emailKH"
+                placeholder="Nhập email"
+              />
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col cols="12">
+          <v-row class="d-flex justify-center align-center">
+            <v-col cols="6">
+              <v-textarea v-model="noiDung" label="Nội dung"></v-textarea>
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col cols="12">
+          <v-row class="d-flex justify-center align-center">
+            <v-col cols="6">
+              <v-btn @click="onClickSend()">Gửi</v-btn>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-item-group>
+</template>
+
+<script setup>
+import axios from "axios";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+const tenSP = localStorage.getItem(`TenSP`);
+const tenKH = ref("");
+const sDTKH = ref("");
+const emailKH = ref("");
+const noiDung = ref("");
+const onClickSend = async () => {
+  const entity = {
+    tenKH: tenKH.value,
+    sDTKH: sDTKH.value,
+    emailKH: emailKH.value,
+    noiDung: noiDung.value,
+    tenSP: tenSP,
+  };
+  const res = await axios.post("http://localhost:5222/api/LienHe/Post", entity);
+  localStorage.removeItem(`TenSP`);
+  router.push("/thankspage");
+};
+</script>
+
+<style>
+.input_lienhe {
+  outline: none;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+</style>
